@@ -1,0 +1,31 @@
+version: "3.7"
+
+services:
+
+  mysql:
+    image: mysql:5.7
+    volumes:
+      - ./mysql57/data:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: secret
+      MYSQL_DATABASE: ebeit_demo
+    ports:
+       - 24738:3306
+
+  app:
+    build:
+       context: ./ebeit2.2
+      #  target: development
+    # command: sh -c "yarn install && yarn run dev"
+    ports:
+      - 2279:2279
+    working_dir: /app/bin
+    # volumes:
+    #   - ./:/app
+    # environment:
+    #   MYSQL_HOST: mysql
+    #   MYSQL_USER: root
+    #   MYSQL_PASSWORD: secret
+    #   MYSQL_DB: todos
+
+

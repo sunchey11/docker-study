@@ -1,0 +1,1 @@
+docker run --name ebeitMongo -p 37017:27017 -it mongo:5.0.11

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<settings xmlns="http://maven.apache.org/SETTINGS/1.0.0"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0 http://maven.apache.org/xsd/settings-1.0.0.xsd">
+
+	
+	<servers>
+
+		<!-- ebig 服务器密码-->
+		<server>
+			<id>ebig-nexus-releases</id>
+			<username>admin</username>
+			<password>ebigadmin</password>
+		</server>
+		<server>
+			<id>ebig-nexus-snapshots</id>
+			<username>admin</username>
+			<password>ebigadmin</password>
+		</server>
+		<server>
+			<id>ebig-nexus</id>
+			<username>ebeit-dev</username>
+			<password>ebeit-xian</password>
+		</server>
+	</servers>
+
+
+
+	<profiles>
+		<profile>
+			<id>ebig-nexus-profile</id>
+			<!--183.63.146.98 -->
+			<repositories>
+				<repository>
+					<id>ebig-nexus</id>
+					<url>http://183.63.146.98:8081/nexus/content/groups/public/</url>
+					<releases><enabled>true</enabled></releases>
+					<snapshots><enabled>true</enabled></snapshots>
+				</repository>
+			</repositories>
+			<pluginRepositories>
+				<pluginRepository>
+					<id>ebig-nexus</id>
+					<url>http://183.63.146.98:8081/nexus/content/groups/public/</url>
+					<releases><enabled>true</enabled></releases>
+					<snapshots><enabled>true</enabled></snapshots>
+				</pluginRepository>
+			</pluginRepositories>
+		</profile>
+		<profile>
+			<id>central</id>
+			<repositories>
+				<repository>
+					<id>central</id>
+					<url>http://repo1.maven.org/maven2</url>   
+				</repository>
+			</repositories>
+			<pluginRepositories>
+				<pluginRepository>
+					<id>central</id>
+					<url>http://repo1.maven.org/maven2</url>   
+				</pluginRepository>
+			</pluginRepositories>
+		</profile>
+	</profiles>
+	<activeProfiles>
+		<activeProfile>ebig-nexus-profile</activeProfile>
+		<!-- <activeProfile>central</activeProfile> -->
+	</activeProfiles>
+</settings>
