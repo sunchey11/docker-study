@@ -11,7 +11,7 @@ RUN mvn -s ./maven-settings.xml  dependency:resolve
 COPY app/package.sh app/ebeitlibarray.txt app/productlibarray.txt ./
 COPY app/bin ./bin
 COPY app/ebeitlib ./ebeitlib
-COPY app/productlib ./productlib
+# COPY app/productlib ./productlib
 RUN ./package.sh
 CMD ["/bin/bash"]
 
