@@ -1,0 +1,32 @@
+version: "3.7"
+#使用上传到docker-hub的ebeit
+services:
+
+  mysql:
+    image: mysql:5.7
+    volumes:
+      - ./mysql57/data:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: secret
+      MYSQL_DATABASE: ebeit_demo
+    ports:
+       - 24738:3306
+
+  app:
+    image: anderssun/ebeit-docker
+      #  target: development
+    # command: sh -c "yarn install && yarn run dev"
+    ports:
+      - 2279:2279
+    working_dir: /app/bin
+    depends_on:
+      - mysql
+    # volumes:
+    #   - ./:/app
+    # environment:
+    #   MYSQL_HOST: mysql
+    #   MYSQL_USER: root
+    #   MYSQL_PASSWORD: secret
+    #   MYSQL_DB: todos
+
+
