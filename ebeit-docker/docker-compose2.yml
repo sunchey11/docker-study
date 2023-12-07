@@ -6,6 +6,7 @@ services:
     image: mysql:5.7
     volumes:
       - ./mysql57/data:/var/lib/mysql
+      - ./mysql57/mysql_conf.d:/etc/mysql/conf.d
     environment:
       MYSQL_ROOT_PASSWORD: secret
       MYSQL_DATABASE: ebeit_demo
