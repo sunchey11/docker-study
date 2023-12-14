@@ -1,8 +1,13 @@
+# 打包
+# 在ebeit2.2目录运行下面的命令
 docker build -t ebeit-docker .
 
+# 进入镜像，查看镜像内部文件
 docker run --network ebeit-net --name ebeit_demo --rm -it -p 2279:2279 ebeit-docker /bin/sh 
 
+# 网络诊断
 docker run -it --network ebeit-net nicolaka/netshoot
-
+# 打标签，需要与远程仓库名称对应
 docker tag ebeit-docker anderssun/ebeit-docker
+# 上传到服务器
 docker push anderssun/ebeit-docker
